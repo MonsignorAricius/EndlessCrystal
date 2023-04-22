@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EndlessCrystal:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EndlessCrystal_jar</output-path>
+    <root id="archive" name="EndlessCrystal.jar">
+      <element id="module-output" name="EndlessCrystal" />
+    </root>
+  </artifact>
+</component>
