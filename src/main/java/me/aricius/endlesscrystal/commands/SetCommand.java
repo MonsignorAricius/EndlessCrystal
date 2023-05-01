@@ -14,11 +14,11 @@ public class SetCommand implements PointsCommand {
     @Override
     public boolean execute(EndlessCrystal plugin, CommandSender sender, Command command, String label, String[] args) {
         if(!PermissionHandler.has(sender, PermissionNode.SET)) {
-            sender.sendMessage("§4K tomuto příkazu nemáš přístup.");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §4K tomuto příkazu nemáš přístup.");
             return true;
         }
         if(args.length < 2) {
-            sender.sendMessage("§c/krystal set <nick> <množství>");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §c/krystal set <nick> <množství>");
             return true;
         }
         try {
@@ -31,13 +31,13 @@ public class SetCommand implements PointsCommand {
                 playerName = args[0];
             }
             if(plugin.getAPI().set(plugin.translateNameToUUID(playerName), intanzahl)) {
-                sender.sendMessage(ChatColor.of("#a4e6fb")+"§oHráč "+playerName+" §omá teď §b§l§o"+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+ChatColor.of("#a4e6fb")+" §okrystalů.");
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráč §f"+playerName+" §7má teď "+ChatColor.of("#9896FD")+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+" §7krystalů.");
             } else {
-                sender.sendMessage("§cTransakce selhala");
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cTransakce selhala.");
             }
 
         } catch(NumberFormatException notnumber) {
-            sender.sendMessage("§cMnožství není číslo!");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cMnožství není číslo!");
         }
         return true;
     }

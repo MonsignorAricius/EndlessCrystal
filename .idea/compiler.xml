@@ -9,8 +9,5 @@
         <module name="EndlessCrystal" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="EndlessCrystal" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

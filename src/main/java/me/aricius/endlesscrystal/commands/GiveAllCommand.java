@@ -18,11 +18,11 @@ public class GiveAllCommand implements PointsCommand {
     @Override
     public boolean execute(EndlessCrystal plugin, CommandSender sender, Command command, String label, String[] args) {
         if(!PermissionHandler.has(sender, PermissionNode.GIVEALL)) {
-            sender.sendMessage("§4K tomuto příkazu nemáš přístup.");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §4K tomuto příkazu nemáš přístup.");
             return true;
         }
         if(args.length < 1) {
-            sender.sendMessage("§c/krystal giveall <množství>");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §c/krystal giveall <množství>");
             return true;
         }
         try {
@@ -31,18 +31,18 @@ public class GiveAllCommand implements PointsCommand {
             for(Player player : Bukkit.getOnlinePlayers()) {
                 if(player != null) {
                     if(plugin.getAPI().give(player.getUniqueId(), anzahl)) {
-                        player.sendMessage(ChatColor.of("#a4e6fb")+"§oDostal/a jsi "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů od "+ChatColor.of("#a4e6fb")+"§o"+sender.getName()+".");
+                        player.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů od §f"+sender.getName()+"§7."));
                     } else {
                         unsuccessful.add(player.getName());
                     }
                 }
             }
-            sender.sendMessage(ChatColor.of("#a4e6fb")+"§oVšichni online hráči dostali "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů.");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Všichni online hráči dostali "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů."));
             if(!unsuccessful.isEmpty()) {
-                sender.sendMessage("§cNepodařilo se dát krystaly hráčům §f"+unsuccessful);
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cNepodařilo se dát krystaly hráčům §f"+unsuccessful+"§7.");
             }
         } catch(NumberFormatException notnumber) {
-            sender.sendMessage("§cMnožství není číslo!");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cMnožství není číslo!");
         }
         return true;
     }

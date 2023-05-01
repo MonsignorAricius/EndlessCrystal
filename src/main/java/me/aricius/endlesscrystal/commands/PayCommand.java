@@ -22,17 +22,17 @@ public class PayCommand implements PointsCommand {
             return true;
         }
         if(!PermissionHandler.has(sender, PermissionNode.PAY)) {
-            sender.sendMessage("§4K tomuto příkazu nemáš přístup.");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §4K tomuto příkazu nemáš přístup.");
             return true;
         }
         if(args.length < 2) {
-            sender.sendMessage("§c/krystal give <nick> <množství>");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §c/krystal give <nick> <množství>");
             return true;
         }
         try {
             final int intanzahl = Integer.parseInt(args[1]);
             if(intanzahl <= 0) {
-                sender.sendMessage("§cNemůžeš zaplatit 0 krystal/ů");
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cNemůžeš zaplatit 0 krystal/ů");
                 return true;
             }
             String playerName = null;
@@ -44,16 +44,16 @@ public class PayCommand implements PointsCommand {
             }
             UUID id = plugin.translateNameToUUID(playerName);
             if(plugin.getAPI().pay(((Player)sender).getUniqueId(), id, intanzahl)) {
-                sender.sendMessage(ChatColor.of("#a4e6fb")+"§oHráči "+playerName+ChatColor.of("#a4e6fb")+" §obylo odesláno "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů.");
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráči §f"+playerName+" §7bylo odesláno "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů."));
                 final Player target = Bukkit.getServer().getPlayer(id);
                 if(target != null && target.isOnline()) {
-                    target.sendMessage(ChatColor.of("#a4e6fb")+"§oDostal/a jsi "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů od "+ChatColor.of("#a4e6fb")+"§o"+sender.getName()+".");
+                    target.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů od §f"+sender.getName()+"§7."));
                 }
             } else {
-                sender.sendMessage("§cNemáš dostatek krystalů!");
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cNemáš dostatek krystalů!");
             }
         } catch(NumberFormatException notnumber) {
-            sender.sendMessage("§cMnožství není číslo!");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cMnožství není číslo!");
         }
         return true;
     }

@@ -17,15 +17,15 @@ public class MeCommand implements PointsCommand {
     @Override
     public boolean execute(EndlessCrystal plugin, CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player)) {
-            sender.sendMessage("§cMusíš být hráč.");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cMusíš být hráč.");
             return true;
         }
         if(!PermissionHandler.has(sender, PermissionNode.ME)) {
-            sender.sendMessage("§4K tomuto příkazu nemáš přístup.");
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §4K tomuto příkazu nemáš přístup.");
             return true;
         }
         UUID hrac = plugin.translateNameToUUID(sender.getName());
-        sender.sendMessage(ChatColor.of("#a4e6fb")+"§oMáš §b§l§o"+ CrystalUtils.formatPoints(plugin.getAPI().look(hrac))+ChatColor.of("#a4e6fb")+" §okrystalů");
+        sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Máš "+ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(plugin.getAPI().look(hrac))+" §7krystalů.");
         return true;
     }
 }
