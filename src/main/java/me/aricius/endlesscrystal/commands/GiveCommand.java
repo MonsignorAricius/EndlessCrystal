@@ -7,7 +7,6 @@ import me.aricius.endlesscrystal.config.RootConfig;
 import me.aricius.endlesscrystal.permissions.PermissionHandler;
 import me.aricius.endlesscrystal.permissions.PermissionNode;
 import me.aricius.endlesscrystal.services.PointsCommand;
-import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -23,7 +22,7 @@ public class GiveCommand implements PointsCommand {
             return true;
         }
         if(args.length < 2) {
-            sender.sendMessage("§7/krystaly give <nick> <množství>");
+            sender.sendMessage("§c/krystal give <nick> <množství>");
             return true;
         }
         try {
@@ -37,10 +36,14 @@ public class GiveCommand implements PointsCommand {
             }
             UUID id = plugin.translateNameToUUID(playerName);
             if(plugin.getAPI().give(id, anzahl)) {
-                sender.sendMessage("§7Hráč §f"+playerName+" §7obdržel "+ ChatColor.of("#9999ff")+args[1]+" §7krystal/ů");
+                sender.sendMessage(ChatColor.of("#a4e6fb")+"§o"+playerName+ChatColor.of("#a4e6fb")+" §oobdržel "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů.");
                 final Player target = Bukkit.getServer().getPlayer(id);
                 if(target != null && target.isOnline()) {
-                    target.sendMessage("§7Dostal/a jsi "+ChatColor.of("#9999ff")+args[1]+" §7krystal/ů od §f"+sender.getName());
+                    if (sender.getName().equalsIgnoreCase("CONSOLE")) {
+                        target.sendMessage(ChatColor.of("#a4e6fb")+"§oDostal/a jsi "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů.");
+                    } else {
+                        target.sendMessage(ChatColor.of("#a4e6fb")+"§oDostal/a jsi "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů od "+ChatColor.of("#a4e6fb")+"§o"+sender.getName()+".");
+                    }
                 }
             } else {
                 sender.sendMessage("§cTransakce selhala");

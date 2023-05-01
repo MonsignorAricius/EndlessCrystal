@@ -4,6 +4,7 @@ import me.aricius.endlesscrystal.EndlessCrystal;
 import me.aricius.endlesscrystal.permissions.PermissionHandler;
 import me.aricius.endlesscrystal.permissions.PermissionNode;
 import me.aricius.endlesscrystal.services.PointsCommand;
+import me.aricius.endlesscrystal.utils.CrystalUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -24,8 +25,7 @@ public class MeCommand implements PointsCommand {
             return true;
         }
         UUID hrac = plugin.translateNameToUUID(sender.getName());
-        sender.sendMessage("§7Máš "+ChatColor.of("#9999ff")+plugin.getAPI().look(hrac)+" §7krystal/ů");
+        sender.sendMessage(ChatColor.of("#a4e6fb")+"§oMáš §b§l§o"+ CrystalUtils.formatPoints(plugin.getAPI().look(hrac))+ChatColor.of("#a4e6fb")+" §okrystalů");
         return true;
     }
-
 }

@@ -58,7 +58,7 @@ public class Commander extends CommandHandler {
     public boolean unknownCommand(CommandSender sender, Command command,
             String label, String[] args, EnumMap<Flag, String> info) {
         info.put(Flag.EXTRA, args[0]);
-        sender.sendMessage("§b[Krystaly] Neznámí příkaz.");
+        sender.sendMessage("§b[Krystaly] Neznámý příkaz.");
         return true;
     }
 

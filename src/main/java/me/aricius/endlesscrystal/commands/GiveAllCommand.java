@@ -22,7 +22,7 @@ public class GiveAllCommand implements PointsCommand {
             return true;
         }
         if(args.length < 1) {
-            sender.sendMessage("§7/krystaly giveall <množství>");
+            sender.sendMessage("§c/krystal giveall <množství>");
             return true;
         }
         try {
@@ -31,13 +31,13 @@ public class GiveAllCommand implements PointsCommand {
             for(Player player : Bukkit.getOnlinePlayers()) {
                 if(player != null) {
                     if(plugin.getAPI().give(player.getUniqueId(), anzahl)) {
-                        player.sendMessage("§7Dostal/a jsi "+ ChatColor.of("#9999ff")+args[0]+" §7krystal/ů od §f"+sender.getName());
+                        player.sendMessage(ChatColor.of("#a4e6fb")+"§oDostal/a jsi "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů od "+ChatColor.of("#a4e6fb")+"§o"+sender.getName()+".");
                     } else {
                         unsuccessful.add(player.getName());
                     }
                 }
             }
-            sender.sendMessage("§7Všichni online hráči dostali "+ChatColor.of("#9999ff")+args[0]+" §7krystal/ů");
+            sender.sendMessage(ChatColor.of("#a4e6fb")+"§oVšichni online hráči dostali "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů.");
             if(!unsuccessful.isEmpty()) {
                 sender.sendMessage("§cNepodařilo se dát krystaly hráčům §f"+unsuccessful);
             }

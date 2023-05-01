@@ -22,7 +22,7 @@ public class TakeCommand implements PointsCommand {
             return true;
         }
         if(args.length < 2) {
-            sender.sendMessage("§7/krystaly take <nick> <množství>");
+            sender.sendMessage("§c/krystal take <nick> <množství>");
             return true;
         }
         try {
@@ -36,10 +36,10 @@ public class TakeCommand implements PointsCommand {
             }
             UUID id = plugin.translateNameToUUID(playerName);
             if(plugin.getAPI().take(id, intanzahl)) {
-                sender.sendMessage("§7Hráč §f"+playerName+" §7má teď "+ ChatColor.of("#9999ff")+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+" §7krystal/ů");
+                sender.sendMessage(ChatColor.of("#a4e6fb")+"§oHráč "+playerName+" §omá teď §b§l§o"+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+ChatColor.of("#a4e6fb")+" §okrystalů.");
                 final Player target = Bukkit.getServer().getPlayer(id);
                 if(target != null && target.isOnline()) {
-                    target.sendMessage("§7Bylo ti odebráno "+ChatColor.of("#9999ff")+args[1]+" §7krystal/ů od §f"+sender.getName());
+                    target.sendMessage(ChatColor.of("#a4e6fb")+"§oBylo ti odebráno "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů.");
                 }
             } else {
                 sender.sendMessage("§cTransakce selhala");

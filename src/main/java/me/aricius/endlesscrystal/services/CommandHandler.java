@@ -73,7 +73,7 @@ public abstract class CommandHandler implements CommandExecutor {
                 value = subCommand.execute(plugin, sender, command, label,
                         shortenArgs(args));
             } catch(ArrayIndexOutOfBoundsException e) {
-                sender.sendMessage(ChatColor.RED + " Missing parameters.");
+                sender.sendMessage(ChatColor.RED + "Missing parameters.");
             }
             return value;
         }

@@ -26,13 +26,13 @@ public class PayCommand implements PointsCommand {
             return true;
         }
         if(args.length < 2) {
-            sender.sendMessage("§7/krystaly give <nick> <množství>");
+            sender.sendMessage("§c/krystal give <nick> <množství>");
             return true;
         }
         try {
             final int intanzahl = Integer.parseInt(args[1]);
             if(intanzahl <= 0) {
-                sender.sendMessage("§7Nemůžeš zaplatit 0 krystal/ů");
+                sender.sendMessage("§cNemůžeš zaplatit 0 krystal/ů");
                 return true;
             }
             String playerName = null;
@@ -44,13 +44,13 @@ public class PayCommand implements PointsCommand {
             }
             UUID id = plugin.translateNameToUUID(playerName);
             if(plugin.getAPI().pay(((Player)sender).getUniqueId(), id, intanzahl)) {
-                sender.sendMessage("§7Poslal/a jsi "+ ChatColor.of("#9999ff")+args[1]+" §7krystal/ů hráči §f"+playerName);
+                sender.sendMessage(ChatColor.of("#a4e6fb")+"§oHráči "+playerName+ChatColor.of("#a4e6fb")+" §obylo odesláno "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů.");
                 final Player target = Bukkit.getServer().getPlayer(id);
                 if(target != null && target.isOnline()) {
-                    target.sendMessage("§7Dostal/a jsi "+ChatColor.of("#9999ff")+args[1]+" §7krystal/ů od §f"+sender.getName());
+                    target.sendMessage(ChatColor.of("#a4e6fb")+"§oDostal/a jsi "+"§b§l§o"+args[1]+ChatColor.of("#a4e6fb")+" §okrystalů od "+ChatColor.of("#a4e6fb")+"§o"+sender.getName()+".");
                 }
             } else {
-                sender.sendMessage("§7Nemáš dostatek krystalů!");
+                sender.sendMessage("§cNemáš dostatek krystalů!");
             }
         } catch(NumberFormatException notnumber) {
             sender.sendMessage("§cMnožství není číslo!");

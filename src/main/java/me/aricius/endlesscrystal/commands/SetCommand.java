@@ -18,7 +18,7 @@ public class SetCommand implements PointsCommand {
             return true;
         }
         if(args.length < 2) {
-            sender.sendMessage("§7/krystaly set <nick> <množství>");
+            sender.sendMessage("§c/krystal set <nick> <množství>");
             return true;
         }
         try {
@@ -31,7 +31,7 @@ public class SetCommand implements PointsCommand {
                 playerName = args[0];
             }
             if(plugin.getAPI().set(plugin.translateNameToUUID(playerName), intanzahl)) {
-                sender.sendMessage("§7Hráč §f"+playerName+" §7má teď "+ ChatColor.of("#9999ff")+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+" §7krystal/ů");
+                sender.sendMessage(ChatColor.of("#a4e6fb")+"§oHráč "+playerName+" §omá teď §b§l§o"+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+ChatColor.of("#a4e6fb")+" §okrystalů.");
             } else {
                 sender.sendMessage("§cTransakce selhala");
             }

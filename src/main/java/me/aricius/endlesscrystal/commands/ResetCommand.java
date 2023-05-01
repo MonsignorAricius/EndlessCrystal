@@ -17,11 +17,11 @@ public class ResetCommand implements PointsCommand {
             return true;
         }
         if(args.length < 1) {
-            sender.sendMessage("§7/krystaly reset <nick>");
+            sender.sendMessage("§c/krystal reset <nick>");
             return true;
-        }
+        }//ChatColor.of("#a4e6fb")+"§oHráč "+playerName+" §omá teď §b§l§o"+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+ChatColor.of("#a4e6fb")+" §okrystalů.");
         if(plugin.getAPI().reset(plugin.translateNameToUUID(args[0]))) {
-            sender.sendMessage("§7Krystaly hráče "+ ChatColor.of("#9999ff")+args[0]+" §7byly resetované");
+            sender.sendMessage(ChatColor.of("#a4e6fb")+"§oKrystaly hráče "+args[0]+" §obyly resetované");
         } else {
             sender.sendMessage("§cNastala chyba při resetu");
         }

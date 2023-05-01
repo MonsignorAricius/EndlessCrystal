@@ -20,7 +20,7 @@ public class LookCommand implements PointsCommand {
             return true;
         }
         if(args.length < 1) {
-            sender.sendMessage("§7/krystaly look <nick>");
+            sender.sendMessage("§c/krystal look <nick>");
             return true;
         }
         String playerName = null;
@@ -31,7 +31,7 @@ public class LookCommand implements PointsCommand {
             playerName = args[0];
         }
         UUID target = plugin.translateNameToUUID(args[0]);
-        sender.sendMessage("§7Hráč §f"+playerName+" §7má "+ ChatColor.of("#9999ff")+plugin.getAPI().look(target)+" §7krystal/ů");
+        sender.sendMessage(ChatColor.of("#a4e6fb")+"§oHráč "+playerName+" §omá §b§l§o"+plugin.getAPI().look(target)+ChatColor.of("#a4e6fb")+" §okrystalů");
         return true;
     }
 
