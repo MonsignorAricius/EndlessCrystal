@@ -24,6 +24,7 @@ public class EndlessCrystal extends JavaPlugin {
     public static final String TAG = "";
     private EndlessCrystalAPI api;
     private final Map<Class<? extends IModule>, IModule> modules = new HashMap<>();
+    public final Map<UUID, Long> getIsLevelHashMap = new HashMap<>();
 
     @Override
     public void onEnable() {

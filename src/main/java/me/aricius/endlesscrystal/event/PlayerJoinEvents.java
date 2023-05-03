@@ -16,7 +16,6 @@ import java.util.UUID;
 
 public class PlayerJoinEvents implements Listener {
     private EndlessCrystal plugin;
-    public Map<UUID, Long> getIsLevelHashMap = new HashMap<>();
 
     public PlayerJoinEvents(EndlessCrystal plugin) {
         this.plugin = plugin;
@@ -24,35 +23,26 @@ public class PlayerJoinEvents implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
+        long n = 2L;
         Player p = e.getPlayer();
         UUID uuid = p.getUniqueId();
         World w = BentoBox.getInstance().getIWM().getIslandWorld("EndlesSkyBlock");
-        if (!this.getIsLevelHashMap.containsKey(uuid) && BentoBox.getInstance().getIslands().getIsland(p.getWorld(), uuid) == null) {
-            this.getIsLevelHashMap.put(uuid, 0L);
-            plugin.getLogger().warning("Player "+p+" not in map, no island, put success");
-        } else if (!this.getIsLevelHashMap.containsKey(uuid) && BentoBox.getInstance().getIslands().getIsland(p.getWorld(), uuid) != null){
+        if (!plugin.getIsLevelHashMap.containsKey(uuid) && BentoBox.getInstance().getIslands().getIsland(p.getWorld(), uuid) == null) {
+            plugin.getIsLevelHashMap.put(uuid, 0L);
+        } else if (!plugin.getIsLevelHashMap.containsKey(uuid) && BentoBox.getInstance().getIslands().getIsland(p.getWorld(), uuid) != null){
             Long isLvl = this.getIsLevel(w, uuid);
-            this.getIsLevelHashMap.put(uuid, isLvl);
-            plugin.getLogger().warning("Player "+p+" not in map, has island, put success. Value: "+isLvl);
-        } else {
-            plugin.getLogger().warning("Player already there. "+this.getIsLevelHashMap.get(uuid));
-            plugin.getLogger().warning("HashMap : "+this.getIsLevelHashMap);
+            plugin.getIsLevelHashMap.put(uuid, removeLastNDigits(isLvl, n));
         }
     }
     @EventHandler
     public void onPlayerCalculateLevel(IslandLevelCalculatedEvent e) {
+        long n = 2L;
         Long newLvl = e.getLevel();
         UUID uuid = e.getTargetPlayer();
-        if (!this.getIsLevelHashMap.containsKey(uuid)) {
-            //WTF?
-            this.getIsLevelHashMap.put(uuid, newLvl);
-            plugin.getLogger().warning("Player somehow not in map, level calculate, put success. Value: "+newLvl);
-            plugin.getLogger().warning("Player value now: "+this.getIsLevelHashMap.get(uuid));
+        if (!plugin.getIsLevelHashMap.containsKey(uuid)) {
+            plugin.getIsLevelHashMap.put(uuid, removeLastNDigits(newLvl, n));
         } else {
-            this.getIsLevelHashMap.replace(uuid, newLvl);
-            plugin.getLogger().warning("Player level calculate, replaced with new value of "+newLvl);
-            plugin.getLogger().warning("Player value now: "+this.getIsLevelHashMap.get(uuid));
-            plugin.getLogger().warning("HashMap : "+this.getIsLevelHashMap);
+            plugin.getIsLevelHashMap.replace(uuid, removeLastNDigits(newLvl, n));
         }
     }
     public Long getIsLevel(World world, UUID uniqueId) {
@@ -65,5 +55,8 @@ public class PlayerJoinEvents implements Listener {
                     }
                     return null;
                 }).orElse(null);
+    }
+    public long removeLastNDigits(long x, long n) {
+        return (long) (x / Math.pow(10, n));
     }
 }

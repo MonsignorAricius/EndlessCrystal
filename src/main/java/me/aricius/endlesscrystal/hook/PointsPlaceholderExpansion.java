@@ -1,6 +1,7 @@
 package me.aricius.endlesscrystal.hook;
 
 import me.aricius.endlesscrystal.EndlessCrystal;
+import me.aricius.endlesscrystal.event.PlayerJoinEvents;
 import me.aricius.endlesscrystal.utils.CrystalUtils;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
@@ -25,6 +26,8 @@ public class PointsPlaceholderExpansion extends PlaceholderExpansion {
                     return CrystalUtils.formatPoints(this.plugin.getAPI().look(player.getUniqueId()));
                 case "skyblock_size":
                     return this.getIslandSizePlaceholder(w, player);
+                case "rank":
+                    return String.valueOf(plugin.getIsLevelHashMap.get(player.getUniqueId()));
             }
         }
         return null;
