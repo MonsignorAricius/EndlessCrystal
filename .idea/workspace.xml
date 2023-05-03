@@ -12,9 +12,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="kokot">
+    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="mrdka">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/event/PlayerJoinEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessCrystal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessCrystal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LookCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/hook/PointsPlaceholderExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/hook/PointsPlaceholderExpansion.java" afterDir="false" />
     </list>
     <list id="783cf7a3-5184-4130-a1c1-b4537f0d9a64" name="New changelisgfdt" comment="gdgf" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682956624573</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="mrdka">
+      <created>1683120506799</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683120506799</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +133,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kokot" />
-    <option name="LAST_COMMIT_MESSAGE" value="kokot" />
+    <MESSAGE value="mrdka" />
+    <option name="LAST_COMMIT_MESSAGE" value="mrdka" />
   </component>
 </project>

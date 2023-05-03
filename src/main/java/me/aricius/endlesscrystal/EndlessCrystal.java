@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import me.aricius.endlesscrystal.commands.Commander;
 import me.aricius.endlesscrystal.config.RootConfig;
+import me.aricius.endlesscrystal.event.PlayerJoinEvents;
 import me.aricius.endlesscrystal.hook.PointsPlaceholderExpansion;
 import me.aricius.endlesscrystal.listeners.RestrictionListener;
 import me.aricius.endlesscrystal.services.ExecutorModule;
@@ -43,6 +44,7 @@ public class EndlessCrystal extends JavaPlugin {
                     new EndlessCrystalVaultLayer(this));
         }
         pm.registerEvents(new RestrictionListener(this), this);
+        pm.registerEvents(new PlayerJoinEvents(this), this);
     }
 
     @Override
