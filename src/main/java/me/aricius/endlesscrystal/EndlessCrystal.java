@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import me.aricius.endlesscrystal.commands.Commander;
+import me.aricius.endlesscrystal.commands.CommanderTAB;
 import me.aricius.endlesscrystal.config.RootConfig;
 import me.aricius.endlesscrystal.event.PlayerJoinEvents;
 import me.aricius.endlesscrystal.hook.PointsPlaceholderExpansion;
@@ -16,6 +17,7 @@ import me.aricius.endlesscrystal.services.ExecutorModule;
 import me.aricius.endlesscrystal.services.IModule;
 import me.aricius.endlesscrystal.storage.StorageHandler;
 import org.bukkit.Bukkit;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,6 +39,8 @@ public class EndlessCrystal extends JavaPlugin {
         if(getDescription().getCommands().containsKey("krystal")) {
             getCommand("krystal").setExecutor(commander);
         }
+        final TabCompleter commandertab = new CommanderTAB(this);
+        getCommand("krystal").setTabCompleter(commandertab);
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
             new PointsPlaceholderExpansion(this).register();
         final PluginManager pm = getServer().getPluginManager();

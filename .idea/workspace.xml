@@ -12,9 +12,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Rank DONE">
+    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Is level placeholder">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/CommanderTAB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/hook/PointsPlaceholderExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/hook/PointsPlaceholderExpansion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" afterDir="false" />
     </list>
     <list id="783cf7a3-5184-4130-a1c1-b4537f0d9a64" name="New changelisgfdt" comment="gdgf" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683135497601</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Is level placeholder">
+      <created>1683314525757</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683314525757</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +151,7 @@
     <MESSAGE value="mrdka" />
     <MESSAGE value="World fix, rank db" />
     <MESSAGE value="Rank DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rank DONE" />
+    <MESSAGE value="Is level placeholder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Is level placeholder" />
   </component>
 </project>
