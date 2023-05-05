@@ -30,8 +30,21 @@ public class CommanderTAB implements TabCompleter {
                 }
             }
         }
-        if (completions != null)
+        if (completions != null) {
+            Set<String> oldVals = new HashSet<>(completions);
+            completions.clear();
+            for (String str : oldVals) {
+                if (str.trim().startsWith(strings[0].toLowerCase())) {
+                    completions.add(str);
+                }
+            }
+            if (strings.length == 3)
+                return Collections.singletonList("<množství>");
+            if (strings.length > 4)
+                return Collections.emptyList();
             Collections.sort(completions);
-        return completions;
+            return completions;
+        }
+        return Collections.emptyList();
     }
 }

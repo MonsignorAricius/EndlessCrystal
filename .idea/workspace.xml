@@ -12,10 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Is level placeholder">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/CommanderTAB.java" afterDir="false" />
+    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Tab completer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/CommanderTAB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/CommanderTAB.java" afterDir="false" />
     </list>
     <list id="783cf7a3-5184-4130-a1c1-b4537f0d9a64" name="New changelisgfdt" comment="gdgf" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683314525757</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Tab completer">
+      <created>1683315618583</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683315618583</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +158,7 @@
     <MESSAGE value="World fix, rank db" />
     <MESSAGE value="Rank DONE" />
     <MESSAGE value="Is level placeholder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Is level placeholder" />
+    <MESSAGE value="Tab completer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tab completer" />
   </component>
 </project>
