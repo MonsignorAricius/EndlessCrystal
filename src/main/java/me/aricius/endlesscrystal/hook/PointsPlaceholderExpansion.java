@@ -7,6 +7,9 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import world.bentobox.bentobox.BentoBox;
+import world.bentobox.level.Level;
+
+import java.util.UUID;
 
 public class PointsPlaceholderExpansion extends PlaceholderExpansion {
     private final EndlessCrystal plugin;
@@ -28,6 +31,8 @@ public class PointsPlaceholderExpansion extends PlaceholderExpansion {
                     return this.getIslandSizePlaceholder(w, player);
                 case "rank":
                     return String.valueOf(plugin.getIsLevelHashMap.get(player.getUniqueId()));
+                case "skyblock_level":
+                    return this.getIslandLevelPlaceholder(w, player);
             }
         }
         return null;
@@ -39,6 +44,26 @@ public class PointsPlaceholderExpansion extends PlaceholderExpansion {
         } else {
             return "-";
         }
+    }
+
+    public String getIslandLevelPlaceholder(World w, OfflinePlayer player) {
+        if (BentoBox.getInstance().getIslands().getIsland(w, player.getUniqueId()) != null) {
+            return String.valueOf(getLevel(w, player.getUniqueId()));
+        } else {
+            return "0";
+        }
+    }
+
+    public Long getLevel(World world, UUID uniqueId) {
+        String name = BentoBox.getInstance().getIWM().getAddon(world).map(g -> g.getDescription().getName()).orElse("");
+        return BentoBox.getInstance().getAddonsManager().getAddonByName("Level")
+                .map(l -> {
+                    final Level addon = (Level) l;
+                    if (!name.isEmpty() && !addon.getSettings().getGameModes().contains(name)) {
+                        return addon.getIslandLevel(world, uniqueId);
+                    }
+                    return null;
+                }).orElse(null);
     }
 
     @Override
