@@ -12,9 +12,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Tab completer">
+    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Tab completer fix, adding semi completed words to complete and no completion on the endsdf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/CommanderTAB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/CommanderTAB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveAllCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveAllCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/LookCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/LookCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/PayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/PayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/SetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/SetCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/TakeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/TakeCommand.java" afterDir="false" />
     </list>
     <list id="783cf7a3-5184-4130-a1c1-b4537f0d9a64" name="New changelisgfdt" comment="gdgf" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683315618583</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Tab completer fix, adding semi completed words to complete and no completion on the end">
+      <created>1683317128001</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683317128001</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tab completer fix, adding semi completed words to complete and no completion on the endsdf">
+      <created>1683317209799</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683317209799</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +180,8 @@
     <MESSAGE value="Rank DONE" />
     <MESSAGE value="Is level placeholder" />
     <MESSAGE value="Tab completer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tab completer" />
+    <MESSAGE value="Tab completer fix, adding semi completed words to complete and no completion on the end" />
+    <MESSAGE value="Tab completer fix, adding semi completed words to complete and no completion on the endsdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tab completer fix, adding semi completed words to complete and no completion on the endsdf" />
   </component>
 </project>

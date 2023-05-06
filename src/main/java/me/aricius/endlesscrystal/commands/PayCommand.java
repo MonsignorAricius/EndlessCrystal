@@ -1,5 +1,6 @@
 package me.aricius.endlesscrystal.commands;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 import me.aricius.endlesscrystal.EndlessCrystal;
@@ -7,6 +8,7 @@ import me.aricius.endlesscrystal.config.RootConfig;
 import me.aricius.endlesscrystal.permissions.PermissionHandler;
 import me.aricius.endlesscrystal.permissions.PermissionNode;
 import me.aricius.endlesscrystal.services.PointsCommand;
+import me.aricius.endlesscrystal.utils.CrystalUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -14,7 +16,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class PayCommand implements PointsCommand {
-
+    private final HashMap<UUID, Long> cmdcooldown;
+    public PayCommand() {
+        this.cmdcooldown = new HashMap<>();
+    }
     @Override
     public boolean execute(EndlessCrystal plugin, CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player)) {
@@ -43,11 +48,30 @@ public class PayCommand implements PointsCommand {
                 playerName = args[0];
             }
             UUID id = plugin.translateNameToUUID(playerName);
+            if (intanzahl > 9999) {
+                if (!cmdcooldown.containsKey(((Player) sender).getUniqueId())) {
+                    cmdcooldown.put(((Player) sender).getUniqueId(), System.currentTimeMillis());
+                    sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cUpozorňujeme, že nadměrné givování krystalů je zakázáno. Pokud je chceš opravdu poslat, zopakuj příkaz do 10 sekund.");
+                    plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+                        @Override
+                        public void run() {
+                            if (!cmdcooldown.get(((Player) sender).getUniqueId()).equals(1L)) {
+                                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cNenapsal jsi příkaz včas, akce byla zrušena.");
+                                cmdcooldown.remove(((Player) sender).getUniqueId());
+                            } else {
+                                cmdcooldown.remove(((Player) sender).getUniqueId());
+                            }
+                        }
+                    }, 200L);
+                    return true;
+                }
+            }
             if(plugin.getAPI().pay(((Player)sender).getUniqueId(), id, intanzahl)) {
-                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráči §f"+playerName+" §7bylo odesláno "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů."));
+                cmdcooldown.put(((Player) sender).getUniqueId(), 1L);
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráči §f"+playerName+" §7bylo odesláno "+(ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
                 final Player target = Bukkit.getServer().getPlayer(id);
                 if(target != null && target.isOnline()) {
-                    target.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů od §f"+sender.getName()+"§7."));
+                    target.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů od §f"+sender.getName()+"§7."));
                 }
             } else {
                 sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cNemáš dostatek krystalů!");

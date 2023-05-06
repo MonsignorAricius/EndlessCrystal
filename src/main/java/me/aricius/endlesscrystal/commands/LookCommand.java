@@ -5,6 +5,7 @@ import me.aricius.endlesscrystal.config.RootConfig;
 import me.aricius.endlesscrystal.permissions.PermissionHandler;
 import me.aricius.endlesscrystal.permissions.PermissionNode;
 import me.aricius.endlesscrystal.services.PointsCommand;
+import me.aricius.endlesscrystal.utils.CrystalUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -31,7 +32,7 @@ public class LookCommand implements PointsCommand {
             playerName = args[0];
         }
         UUID target = plugin.translateNameToUUID(args[0]);
-        sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráč §f"+playerName+" §7má "+ChatColor.of("#9896FD")+plugin.getAPI().look(target)+" §7krystalů.");
+        sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráč §f"+playerName+" §7má "+ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(plugin.getAPI().look(target))+" §7krystalů.");
         return true;
     }
 

@@ -7,6 +7,7 @@ import me.aricius.endlesscrystal.EndlessCrystal;
 import me.aricius.endlesscrystal.permissions.PermissionHandler;
 import me.aricius.endlesscrystal.permissions.PermissionNode;
 import me.aricius.endlesscrystal.services.PointsCommand;
+import me.aricius.endlesscrystal.utils.CrystalUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -31,13 +32,13 @@ public class GiveAllCommand implements PointsCommand {
             for(Player player : Bukkit.getOnlinePlayers()) {
                 if(player != null) {
                     if(plugin.getAPI().give(player.getUniqueId(), anzahl)) {
-                        player.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů od §f"+sender.getName()+"§7."));
+                        player.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů"));
                     } else {
                         unsuccessful.add(player.getName());
                     }
                 }
             }
-            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Všichni online hráči dostali "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů."));
+            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Všichni online hráči dostali "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
             if(!unsuccessful.isEmpty()) {
                 sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cNepodařilo se dát krystaly hráčům §f"+unsuccessful+"§7.");
             }

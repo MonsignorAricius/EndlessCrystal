@@ -5,6 +5,7 @@ import me.aricius.endlesscrystal.config.RootConfig;
 import me.aricius.endlesscrystal.permissions.PermissionHandler;
 import me.aricius.endlesscrystal.permissions.PermissionNode;
 import me.aricius.endlesscrystal.services.PointsCommand;
+import me.aricius.endlesscrystal.utils.CrystalUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -31,7 +32,7 @@ public class SetCommand implements PointsCommand {
                 playerName = args[0];
             }
             if(plugin.getAPI().set(plugin.translateNameToUUID(playerName), intanzahl)) {
-                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráč §f"+playerName+" §7má teď "+ChatColor.of("#9896FD")+plugin.getAPI().look(plugin.translateNameToUUID(playerName))+" §7krystalů.");
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráč §f"+playerName+" §7má teď "+ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(plugin.getAPI().look(plugin.translateNameToUUID(playerName)))+" §7krystalů.");
             } else {
                 sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cTransakce selhala.");
             }

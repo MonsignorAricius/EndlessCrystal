@@ -39,7 +39,7 @@ public class EndlessCrystal extends JavaPlugin {
         if(getDescription().getCommands().containsKey("krystal")) {
             getCommand("krystal").setExecutor(commander);
         }
-        final TabCompleter commandertab = new CommanderTAB(this);
+        final TabCompleter commandertab = new CommanderTAB();
         getCommand("krystal").setTabCompleter(commandertab);
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
             new PointsPlaceholderExpansion(this).register();

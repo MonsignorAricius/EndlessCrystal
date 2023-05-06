@@ -1,8 +1,10 @@
 package me.aricius.endlesscrystal.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,21 +27,24 @@ public class CommanderTAB implements TabCompleter {
                 }
             }
         }
-        if (completions != null) {
-            Set<String> oldVals = new HashSet<>(completions);
-            completions.clear();
-            for (String str : oldVals) {
-                if (str.trim().startsWith(strings[0].toLowerCase())) {
-                    completions.add(str);
-                }
+        List<String> completions2 = new ArrayList<>();
+        if (strings.length == 1) {
+            for (String a : list) {
+                if (a.toLowerCase().startsWith(strings[0].toLowerCase()))
+                    completions2.add(a);
             }
-            if (strings.length == 3)
-                return Collections.singletonList("<množství>");
-            if (strings.length > 4)
-                return Collections.emptyList();
-            Collections.sort(completions);
-            return completions;
+            return completions2;
         }
-        return Collections.emptyList();
+        /*List<String> completions3 = new ArrayList<>();
+        if (strings.length == 2)
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                completions3.add(p.getName());
+                return completions3;
+            }*/
+        if (strings.length == 3)
+            return Collections.singletonList("<množství>");
+        if (strings.length >= 4)
+            return Collections.emptyList();
+        return completions;
     }
 }

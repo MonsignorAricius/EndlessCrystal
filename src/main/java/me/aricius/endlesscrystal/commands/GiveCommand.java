@@ -7,6 +7,7 @@ import me.aricius.endlesscrystal.config.RootConfig;
 import me.aricius.endlesscrystal.permissions.PermissionHandler;
 import me.aricius.endlesscrystal.permissions.PermissionNode;
 import me.aricius.endlesscrystal.services.PointsCommand;
+import me.aricius.endlesscrystal.utils.CrystalUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -36,13 +37,13 @@ public class GiveCommand implements PointsCommand {
             }
             UUID id = plugin.translateNameToUUID(playerName);
             if(plugin.getAPI().give(id, anzahl)) {
-                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §f"+playerName+" §7obdržel "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů."));
+                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §f"+playerName+" §7obdržel "+(ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
                 final Player target = Bukkit.getServer().getPlayer(id);
                 if(target != null && target.isOnline()) {
                     if (sender.getName().equalsIgnoreCase("CONSOLE")) {
-                        target.sendMessage ("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Obdržel/a jsi "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů."));
+                        target.sendMessage ("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Obdržel/a jsi "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
                     } else {
-                        target.sendMessage ("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+args[1]+" §7krystalů od "+"§f"+sender.getName()+"."));
+                        target.sendMessage ("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů od "+"§f"+sender.getName()+"."));
                     }
                 }
             } else {
