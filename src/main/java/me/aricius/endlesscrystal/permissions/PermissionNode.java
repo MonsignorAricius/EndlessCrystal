@@ -9,7 +9,8 @@ public enum PermissionNode {
     PAY(".pay"),
     SET(".set"),
     RESET(".reset"),
-    ME(".me");
+    ME(".me"),
+    CRAZYCRATES(".send");
     private static final String prefix = "Krystaly";
     private String node;
     private PermissionNode(String node) {

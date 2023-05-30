@@ -13,15 +13,16 @@ import org.bukkit.command.CommandSender;
 import java.util.UUID;
 
 public class LookCommand implements PointsCommand {
+    public String PREFIX = CrystalUtils.hex(" &f&l∣#9f9afb&lᴋ#a49af8&lʀ#a99bf4&lʏ#ae9bf1&ls#b49bee&lᴛ#b99beb&lᴀ#be9ce7&lʟ#c39ce4&lʏ&f&l≫  ");
 
     @Override
     public boolean execute(EndlessCrystal plugin, CommandSender sender, Command command, String label, String[] args) {
         if(!PermissionHandler.has(sender, PermissionNode.LOOK)) {
-            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §4K tomuto příkazu nemáš přístup.");
+            sender.sendMessage(PREFIX+"§4K tomuto příkazu nemáš přístup.");
             return true;
         }
         if(args.length < 1) {
-            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §c/krystal look <nick>");
+            sender.sendMessage(PREFIX+"§c/krystal look <nick>");
             return true;
         }
         String playerName = null;
@@ -32,7 +33,7 @@ public class LookCommand implements PointsCommand {
             playerName = args[0];
         }
         UUID target = plugin.translateNameToUUID(args[0]);
-        sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Hráč §f"+playerName+" §7má "+ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(plugin.getAPI().look(target))+" §7krystalů.");
+        sender.sendMessage(PREFIX+"§7Hráč §f"+playerName+" §7má "+ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(plugin.getAPI().look(target))+" §7krystalů.");
         return true;
     }
 

@@ -29,7 +29,7 @@ public class PlayerJoinEvents implements Listener {
         World w = BentoBox.getInstance().getIWM().getIslandWorld("EndlesSkyBlock");
         if (!plugin.getIsLevelHashMap.containsKey(uuid) && BentoBox.getInstance().getIslands().getIsland(p.getWorld(), uuid) == null) {
             plugin.getIsLevelHashMap.put(uuid, 0L);
-        } else if (!plugin.getIsLevelHashMap.containsKey(uuid) && BentoBox.getInstance().getIslands().getIsland(p.getWorld(), uuid) != null){
+        } else if (BentoBox.getInstance().getIslands().getIsland(p.getWorld(), uuid) != null) {
             Long isLvl = this.getIsLevel(w, uuid);
             plugin.getIsLevelHashMap.put(uuid, removeLastNDigits(isLvl, n));
         }

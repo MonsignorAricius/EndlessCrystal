@@ -10,17 +10,6 @@ commands:
     description: Crystal command
     usage: /krystal <param>
 permissions:
-  endlesscrystal.*:
-    children:
-      endlesscrystal.give: true
-      endlesscrystal.giveall: true
-      endlesscrystal.take: true
-      endlesscrystal.look: true
-      endlesscrystal.pay: true
-      endlesscrystal.set: true
-      endlesscrystal.reset: true
-      endlesscrystal.me: true
-      endlesscrystal.reload: true
   endlesscrystal.give:
     default: op
   endlesscrystal.giveall:

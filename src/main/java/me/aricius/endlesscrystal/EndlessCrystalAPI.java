@@ -32,15 +32,6 @@ public class EndlessCrystalAPI {
         return false;
     }
 
-    @Deprecated
-    public boolean give(String playerName, int amount) {
-    	boolean success = false;
-    	if(playerName != null) {
-    		success = give(plugin.translateNameToUUID(playerName), amount);
-    	}
-    	return success;
-    }
-
     public boolean take(UUID playerId, int amount) {
         final int points = look(playerId);
         int take = amount;
@@ -52,14 +43,22 @@ public class EndlessCrystalAPI {
         }
         return give(playerId, take);
     }
-    
-    @Deprecated
-    public boolean take(String playerName, int amount) {
-    	boolean success = false;
-    	if(playerName != null) {
-    		success = take(plugin.translateNameToUUID(playerName), amount);
-    	}
-    	return success;
+
+    public boolean withdraw(Player player, double amount) {
+        UUID uuid = player.getUniqueId();
+        int amnt = (int) amount;
+        return take(uuid, amnt);
+    }
+
+    public boolean has(Player player, double amount) {
+        UUID uuid = player.getUniqueId();
+        int amnt = (int) amount;
+        int num = plugin.getModuleForClass(StorageHandler.class).getPoints(uuid.toString());
+        if (amnt < num) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int look(UUID playerId) {
@@ -68,11 +67,6 @@ public class EndlessCrystalAPI {
     		amount = plugin.getModuleForClass(StorageHandler.class).getPoints(playerId.toString());
     	}
     	return amount;
-    }
-    
-    @Deprecated
-    public int look(String playerName) {
-        return look(plugin.translateNameToUUID(playerName));
     }
 
     public boolean pay(UUID source, UUID target, int amount) {
@@ -84,15 +78,6 @@ public class EndlessCrystalAPI {
             }
         }
         return false;
-    }
-    
-    @Deprecated
-    public boolean pay(String sourceName, String targetName, int amount) {
-    	boolean success = false;
-    	if(sourceName != null && targetName != null) {
-    		success = pay(plugin.translateNameToUUID(sourceName), plugin.translateNameToUUID(targetName), amount);
-    	}
-    	return success;
     }
 
     public boolean set(UUID playerId, int amount) {
@@ -109,15 +94,6 @@ public class EndlessCrystalAPI {
         }
         return false;
     }
-    
-    @Deprecated
-    public boolean set(String playerName, int amount) {
-    	boolean success = false;
-    	if(playerName != null) {
-    		success = set(plugin.translateNameToUUID(playerName), amount);
-    	}
-    	return success;
-    }
 
     public boolean reset(UUID playerId) {
     	if(playerId == null) {
@@ -130,14 +106,5 @@ public class EndlessCrystalAPI {
                     playerId.toString(), event.getChange());
         }
         return false;
-    }
-    
-    @Deprecated
-    public boolean reset(String playerName, int amount) {
-    	boolean success = false;
-    	if(playerName != null) {
-    		success = reset(plugin.translateNameToUUID(playerName));
-    	}
-    	return success;
     }
 }

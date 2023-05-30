@@ -23,6 +23,7 @@ public class Commander extends CommandHandler {
         registerCommand("set", new SetCommand());
         registerCommand("reset", new ResetCommand());
         registerCommand("me", new MeCommand());
+        registerCommand("cckrystal", new CrazyCratesCommand());
     }
 
     @Override
@@ -62,5 +63,4 @@ public class Commander extends CommandHandler {
         sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Neznámý příkaz.");
         return true;
     }
-
 }

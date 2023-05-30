@@ -1,9 +1,12 @@
 package me.aricius.endlesscrystal.utils;
 
+import org.bukkit.ChatColor;
+
 import java.text.NumberFormat;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class CrystalUtils {
@@ -37,5 +40,24 @@ public final class CrystalUtils {
 
         long truncated = points / (divideBy / 10);
         return ((truncated / 10D) + suffix).replaceFirst(Pattern.quote("."), getDecimalSeparator() + "");
+    }
+
+    public static String hex(String message) {
+        Pattern pattern = Pattern.compile("(#[a-fA-F0-9]{6})");
+        Matcher matcher = pattern.matcher(message);
+        while (matcher.find()) {
+            String hexCode = message.substring(matcher.start(), matcher.end());
+            String replaceSharp = hexCode.replace('#', 'x');
+
+            char[] ch = replaceSharp.toCharArray();
+            StringBuilder builder = new StringBuilder("");
+            for (char c : ch) {
+                builder.append("&" + c);
+            }
+
+            message = message.replace(hexCode, builder.toString());
+            matcher = pattern.matcher(message);
+        }
+        return ChatColor.translateAlternateColorCodes('&', message).replace('&', '§');
     }
 }

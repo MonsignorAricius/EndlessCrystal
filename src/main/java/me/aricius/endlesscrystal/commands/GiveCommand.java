@@ -15,15 +15,16 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class GiveCommand implements PointsCommand {
+    public String PREFIX = CrystalUtils.hex(" &f&l∣#9f9afb&lᴋ#a49af8&lʀ#a99bf4&lʏ#ae9bf1&ls#b49bee&lᴛ#b99beb&lᴀ#be9ce7&lʟ#c39ce4&lʏ&f&l≫  ");
 
     @Override
     public boolean execute(EndlessCrystal plugin, CommandSender sender, Command command, String label, String[] args) {
         if(!PermissionHandler.has(sender, PermissionNode.GIVE)) {
-            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §4K tomuto příkazu nemáš přístup.");
+            sender.sendMessage(PREFIX+"§4K tomuto příkazu nemáš přístup.");
             return true;
         }
         if(args.length < 2) {
-            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §c/krystal give <nick> <množství>");
+            sender.sendMessage(PREFIX+"§c/krystal give <nick> <množství>");
             return true;
         }
         try {
@@ -37,20 +38,20 @@ public class GiveCommand implements PointsCommand {
             }
             UUID id = plugin.translateNameToUUID(playerName);
             if(plugin.getAPI().give(id, anzahl)) {
-                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §f"+playerName+" §7obdržel "+(ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
+                sender.sendMessage(PREFIX+"§f"+playerName+" §7obdržel "+(ChatColor.of("#9896FD")+ CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
                 final Player target = Bukkit.getServer().getPlayer(id);
                 if(target != null && target.isOnline()) {
                     if (sender.getName().equalsIgnoreCase("CONSOLE")) {
-                        target.sendMessage ("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Obdržel/a jsi "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
+                        target.sendMessage (PREFIX+"§7Obdržel/a jsi "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů."));
                     } else {
-                        target.sendMessage ("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §7Dostal/a jsi "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů od "+"§f"+sender.getName()+"."));
+                        target.sendMessage (PREFIX+"§7Dostal/a jsi "+(ChatColor.of("#9896FD")+CrystalUtils.formatPoints(Long.parseLong(args[1]))+" §7krystalů od "+"§f"+sender.getName()+"."));
                     }
                 }
             } else {
-                sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cTransakce selhala!");
+                sender.sendMessage(PREFIX+"§cTransakce selhala!");
             }
         } catch(NumberFormatException notnumber) {
-            sender.sendMessage("§8["+(ChatColor.of("#9896FD")+"§lKrystaly")+"§8]"+" §cProsím zadej číslo!");
+            sender.sendMessage(PREFIX+"§cProsím zadej číslo!");
         }
         return true;
     }
