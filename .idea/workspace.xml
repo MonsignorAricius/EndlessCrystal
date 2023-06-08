@@ -12,22 +12,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Command confirmer, int formatter for all cmds">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/CrazyCratesCommand.java" afterDir="false" />
+    <list default="true" id="b4587f11-00c7-41a5-9503-b808a783928b" name="Changes" comment="Spacing baby">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystalAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/EndlessCrystalAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/Commander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveAllCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveAllCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/GiveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/LookCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/LookCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/MeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/MeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/PayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/PayCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/ResetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/ResetCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/SetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/SetCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/TakeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/commands/TakeCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/event/PlayerJoinEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/event/PlayerJoinEvents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/permissions/PermissionNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/permissions/PermissionNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/utils/CrystalUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/aricius/endlesscrystal/utils/CrystalUtils.java" afterDir="false" />
     </list>
     <list id="783cf7a3-5184-4130-a1c1-b4537f0d9a64" name="New changelisgfdt" comment="gdgf" />
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683359275253</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Spacing baby">
+      <created>1685428778597</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685428778597</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +192,7 @@
     <MESSAGE value="Tab completer fix, adding semi completed words to complete and no completion on the end" />
     <MESSAGE value="Tab completer fix, adding semi completed words to complete and no completion on the endsdf" />
     <MESSAGE value="Command confirmer, int formatter for all cmds" />
-    <option name="LAST_COMMIT_MESSAGE" value="Command confirmer, int formatter for all cmds" />
+    <MESSAGE value="Spacing baby" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spacing baby" />
   </component>
 </project>

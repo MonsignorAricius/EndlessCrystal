@@ -44,23 +44,6 @@ public class EndlessCrystalAPI {
         return give(playerId, take);
     }
 
-    public boolean withdraw(Player player, double amount) {
-        UUID uuid = player.getUniqueId();
-        int amnt = (int) amount;
-        return take(uuid, amnt);
-    }
-
-    public boolean has(Player player, double amount) {
-        UUID uuid = player.getUniqueId();
-        int amnt = (int) amount;
-        int num = plugin.getModuleForClass(StorageHandler.class).getPoints(uuid.toString());
-        if (amnt < num) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public int look(UUID playerId) {
     	int amount = 0;
     	if(playerId != null) {
