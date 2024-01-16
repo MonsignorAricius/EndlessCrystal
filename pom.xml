@@ -83,7 +83,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19.4-R0.1-SNAPSHOT</version>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -101,13 +101,13 @@
         <dependency>
             <groupId>world.bentobox</groupId>
             <artifactId>bentobox</artifactId>
-            <version>1.23.1</version>
+            <version>1.24.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>world.bentobox</groupId>
             <artifactId>level</artifactId>
-            <version>2.9.0</version>
+            <version>2.12.0</version>
         </dependency>
     </dependencies>
 </project>

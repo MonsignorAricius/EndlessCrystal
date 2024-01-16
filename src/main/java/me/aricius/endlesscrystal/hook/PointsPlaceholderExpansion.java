@@ -21,7 +21,7 @@ public class PointsPlaceholderExpansion extends PlaceholderExpansion {
     @Override
     public String onRequest(OfflinePlayer player, String placeholder) {
         if (player != null) {
-            World w = BentoBox.getInstance().getIWM().getIslandWorld("EndlesSkyBlock");
+            World w = BentoBox.getInstance().getIWM().getIslandWorld("Eufora");
             switch (placeholder.toLowerCase()) {
                 case "krystaly":
                     return String.valueOf(this.plugin.getAPI().look(player.getUniqueId()));

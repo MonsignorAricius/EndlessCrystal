@@ -3,7 +3,7 @@ version: '${project.version}'
 main: me.aricius.endlesscrystal.EndlessCrystal
 authors: [Aricius, Kaykka_]
 softdepend: [PlaceholderAPI]
-api-version: 1.19
+api-version: 1.20
 
 commands:
   krystal:
